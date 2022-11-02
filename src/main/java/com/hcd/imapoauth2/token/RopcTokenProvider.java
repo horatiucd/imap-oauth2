@@ -33,7 +33,7 @@ public class RopcTokenProvider implements TokenProvider {
         bodyValues.add("grant_type", "client_credentials");
 
         TokenDTO token = client.post()
-                .uri("/{tenantId}/oauth2/v2.0/token",mailProperties.getTenantId())
+                .uri("/{tenantId}/oauth2/v2.0/token", mailProperties.getTenantId())
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromFormData(bodyValues))
