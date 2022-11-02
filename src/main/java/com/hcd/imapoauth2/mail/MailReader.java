@@ -31,8 +31,7 @@ public class MailReader {
         Session session = Session.getInstance(props);
         try {
             Store store = session.getStore();
-            String token = tokenProvider.getAccessToken();
-            store.connect(mailProperties.getHost(), mailProperties.getUser(), token);
+            store.connect(mailProperties.getHost(), mailProperties.getUser(), tokenProvider.getAccessToken());
             return store.getFolder(name);
         } catch (MessagingException e) {
             throw new RuntimeException("Unable to connect to the default folder.", e);
